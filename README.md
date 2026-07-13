@@ -87,6 +87,20 @@ window stays open while it runs (close it to stop). Because it's the real local
 app, the **Local folder** data source works, so you can point it straight at a
 folder of `Monitor#.txt` files.
 
+#### Offline / air-gapped machines
+
+The exe is fully self-contained (it bundles its own Python and every library)
+and runs a purely local server, so **it needs no internet to run** — verified:
+the app loads all of its code, styles, and fonts from `localhost` and makes no
+external network calls. Only *downloading* it needs internet. For an air-gapped
+Windows box:
+
+1. On any machine with internet, download the installer or portable zip from the
+   [latest release](https://github.com/mbsai/drosophila-activity-gui/releases/latest).
+2. Copy the file to the offline machine (USB drive, network share, etc.).
+3. Run the installer (or unzip and double-click the exe). It works with no
+   further downloads.
+
 ### Using the app
 
 1. **Data source** (sidebar): upload your `Monitor<n>.txt` files, or (when
