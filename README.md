@@ -17,12 +17,12 @@ of hand-editing `.ini` files and running a script from the data folder, you fill
 in a form, edit a genotype table, click **Run**, preview the plots inline, and
 download the PDFs and Excel files.
 
-**🌐 Run it online:** one-click deploy to Streamlit Community Cloud (free) →
-[**Deploy this app**](https://share.streamlit.io/deploy?repository=mbsai/drosophila-activity-gui&branch=main&mainModule=app.py).
-Sign in with GitHub, click **Deploy**, and you'll get a public
-`*.streamlit.app` URL. Paste that URL here afterwards:
+**🌐 Live app:** <https://mbsai-drosophila-activity-gui-app-uvaiew.streamlit.app/>
+— runs on Streamlit Community Cloud's free tier (sleeps when idle, wakes on the
+next visit; use the **Upload files** option since there's no shared disk).
 
-<!-- **Live app:** https://YOUR-APP-NAME.streamlit.app -->
+Want your own copy? One-click deploy →
+[**Deploy this app**](https://share.streamlit.io/deploy?repository=mbsai/drosophila-activity-gui&branch=main&mainModule=app.py).
 
 ## What it computes
 
