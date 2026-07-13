@@ -104,6 +104,11 @@ def _zip_output(out_dir):
 # --------------------------------------------------------------------------- #
 _ensure_state()
 
+# A widget's session_state key can only be set before the widget is created, so
+# a deferred mode switch (from "Generate sample data") is applied here, up front.
+if st.session_state.pop("_switch_to_local", False):
+    st.session_state["data_mode"] = "Local folder"
+
 st.sidebar.title("🪰 Setup")
 
 st.sidebar.header("1. Data source")
@@ -136,9 +141,10 @@ if st.sidebar.button("Generate sample data", use_container_width=True):
     import make_sample_data
     sample_dir = os.path.join(HERE, "sample_data")
     make_sample_data.main(sample_dir)
-    # sample data lives on the local disk, so switch to folder mode to read it.
+    # sample data lives on the local disk, so switch to folder mode to read it
+    # (applied on the next run, before the radio widget is instantiated).
     st.session_state["data_dir"] = sample_dir
-    st.session_state["data_mode"] = "Local folder"
+    st.session_state["_switch_to_local"] = True
     st.rerun()
 
 # resolve the effective data directory for whichever mode is active
