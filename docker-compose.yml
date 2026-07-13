@@ -1,0 +1,20 @@
+# Development container with live reload: source is mounted into the image so
+# edits to app.py / dam/ show up on the next browser interaction — no rebuild.
+#   docker compose up --build     (then open http://localhost:8501)
+services:
+  app:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./app.py:/app/app.py
+      - ./dam:/app/dam
+      - ./make_sample_data.py:/app/make_sample_data.py
+    command:
+      - streamlit
+      - run
+      - app.py
+      - --server.port=8501
+      - --server.address=0.0.0.0
+      - --server.runOnSave=true
+      - --browser.gatherUsageStats=false

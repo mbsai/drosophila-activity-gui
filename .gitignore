@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+*.log
+sample_data/
+*_plots/
+*.xlsx
+dam_out_*/
+# vendored copy of the archived upstream project (reference only, kept local)
+repo/
+.venv/
