@@ -68,6 +68,25 @@ Push this repo to GitHub, then go to <https://share.streamlit.io> → **New app*
 pick the repo, set the main file to `app.py`, and deploy. See
 [DEPLOY.md](DEPLOY.md) for the full walkthrough and notes.
 
+### Option D — Windows desktop app (.exe)
+
+For a Windows 10/11 machine that shouldn't need Python or Docker installed:
+
+- **Download a prebuilt exe:** open the repo's
+  [**Actions → windows-build**](https://github.com/mbsai/drosophila-activity-gui/actions/workflows/windows-build.yml),
+  pick the latest successful run, and download either
+  `DrosophilaActivityGUI-Setup` (an installer that adds a Start-menu / desktop
+  shortcut) or `DrosophilaActivityGUI-windows-portable` (a folder — unzip and
+  double-click `DrosophilaActivityGUI.exe`). Tagged releases (`v*`) also attach
+  both files to the GitHub release.
+- **Or build it yourself on the Windows box** (needs Python 3.11): clone the
+  repo and run `windows\build_windows.bat`.
+
+Either way, launching it opens the app in your default browser; a small console
+window stays open while it runs (close it to stop). Because it's the real local
+app, the **Local folder** data source works, so you can point it straight at a
+folder of `Monitor#.txt` files.
+
 ### Using the app
 
 1. **Data source** (sidebar): upload your `Monitor<n>.txt` files, or (when

@@ -139,7 +139,9 @@ else:
 
 if st.sidebar.button("Generate sample data", use_container_width=True):
     import make_sample_data
-    sample_dir = os.path.join(HERE, "sample_data")
+    # write to a user-writable temp dir (the app dir may be read-only, e.g. when
+    # installed under Program Files on Windows).
+    sample_dir = os.path.join(tempfile.gettempdir(), "dam_sample_data")
     make_sample_data.main(sample_dir)
     # sample data lives on the local disk, so switch to folder mode to read it
     # (applied on the next run, before the radio widget is instantiated).
